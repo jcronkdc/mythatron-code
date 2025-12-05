@@ -149,6 +149,14 @@
       {
         "command": "claudeCode.pushToGitHub",
         "title": "Claude Code: Push to GitHub"
+      },
+      {
+        "command": "claudeCode.preflightCheck",
+        "title": "Claude Code: Run Preflight Check"
+      },
+      {
+        "command": "claudeCode.forceValidation",
+        "title": "Claude Code: Force Validation"
       }
     ],
     "viewsContainers": {

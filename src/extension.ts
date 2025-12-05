@@ -23,6 +23,8 @@ import { getPromptsLibrary } from "./features/prompts";
 import { getConversationHistory } from "./features/history";
 import { autoFixImports } from "./features/smart-imports";
 import { showCLIStatus, importCLIConfigs, runSetupWizard, createRepoInteractive, quickPush } from "./cli";
+import { showPreflightReport } from "./preflight";
+import { initContinuousValidation, forceValidation } from "./preflight/continuous";
 
 // Cost-saving optimizations
 import {
@@ -61,6 +63,10 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   try {
     await initializeProviders();
     outputChannel.appendLine("✓ Providers initialized");
+    
+    // Initialize continuous validation (catches errors early!)
+    initContinuousValidation(context);
+    outputChannel.appendLine("✓ Continuous validation enabled");
 
     await initMemoryManager(workspaceRoot);
     outputChannel.appendLine("✓ Memory manager initialized");
@@ -200,6 +206,11 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     // GitHub integration
     vscode.commands.registerCommand("claudeCode.createRepo", () => createRepoInteractive()),
     vscode.commands.registerCommand("claudeCode.pushToGitHub", () => quickPush()),
+    
+    // Preflight checks
+    vscode.commands.registerCommand("claudeCode.preflightCheck", () => showPreflightReport()),
+    vscode.commands.registerCommand("claudeCode.forceValidation", () => forceValidation()),
+    vscode.commands.registerCommand("claudeCode.showPreflightReport", () => showPreflightReport()),
     
     statusBarItem,
     costStatusItem,
