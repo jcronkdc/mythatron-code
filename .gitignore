@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+out/
+*.vsix
+
+# Environment & secrets
+.env
+.env.local
+*.pem
+
+# IDE & Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Claude Code local data (user-specific)
+.claudecode/history/
+.claudecode/prompts.json
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
