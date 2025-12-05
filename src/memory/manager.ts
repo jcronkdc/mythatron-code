@@ -1,6 +1,6 @@
 /**
  * Memory Manager - Persistent knowledge storage
- * Stores memories and project rules in .claudecode folder
+ * Stores memories and project rules in .mythatron folder
  */
 
 import * as vscode from "vscode";
@@ -21,7 +21,7 @@ export class MemoryManager {
       vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ||
       process.cwd();
     
-    this.configDir = path.join(this.workspaceRoot, ".claudecode");
+    this.configDir = path.join(this.workspaceRoot, ".mythatron");
     this.memoriesPath = path.join(this.configDir, "memories.json");
     this.rulesPath = path.join(this.configDir, "rules.json");
     

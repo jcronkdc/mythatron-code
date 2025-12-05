@@ -414,7 +414,7 @@ export function showEfficiencyReport(): void {
   ).then((choice) => {
     if (choice === "Show Details") {
       // Show in output channel
-      const channel = vscode.window.createOutputChannel("Claude Code Efficiency");
+      const channel = vscode.window.createOutputChannel("MythaTron Code Efficiency");
       channel.appendLine(message);
       channel.show();
     }

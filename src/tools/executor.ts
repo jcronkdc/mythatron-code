@@ -1060,7 +1060,7 @@ export class ToolExecutor {
   private async applyDiff(input: ToolInput): Promise<string> {
     const filePath = this.resolvePath(input.path as string);
     const diff = input.diff as string;
-    const tempPath = path.join(this.workspaceRoot, ".claude-code-temp.diff");
+    const tempPath = path.join(this.workspaceRoot, ".mythatron-code-temp.diff");
 
     try {
       fs.writeFileSync(tempPath, diff);
@@ -1232,7 +1232,7 @@ export class ToolExecutor {
       const result = await mcp.callTool("browser", "browser_snapshot", {});
       return result.content.map((c) => c.text || "").join("\n");
     } catch {
-      return "Browser MCP not connected. Configure in .claudecode/mcp.json";
+      return "Browser MCP not connected. Configure in .mythatron/mcp.json";
     }
   }
 
@@ -1309,7 +1309,7 @@ export class ToolExecutor {
     const tools = mcp.getAllTools();
 
     if (tools.length === 0) {
-      return "No MCP tools available. Configure servers in .claudecode/mcp.json";
+      return "No MCP tools available. Configure servers in .mythatron/mcp.json";
     }
 
     return tools

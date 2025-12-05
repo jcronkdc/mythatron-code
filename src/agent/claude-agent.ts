@@ -1,5 +1,5 @@
 /**
- * Claude Code Agent - Core AI with multi-provider support
+ * MythaTron Code Agent - Core AI with multi-provider support
  * Smart routing for cost optimization
  */
 
@@ -49,7 +49,7 @@ export interface AgentResponse {
   state: AgentState;
 }
 
-const DEFAULT_SYSTEM_PROMPT = `You are Claude Code, an expert AI assistant for software development.
+const DEFAULT_SYSTEM_PROMPT = `You are MythaTron Code, an expert AI assistant for software development.
 
 You have access to powerful tools for reading/writing files, running terminal commands, searching code, and more. Always use the most appropriate tool for the task.
 

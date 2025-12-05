@@ -1,6 +1,6 @@
 /**
  * MCP Manager - Manages multiple MCP servers per project
- * Loads configuration from .claudecode/mcp.json
+ * Loads configuration from .mythatron/mcp.json
  */
 
 import * as vscode from "vscode";
@@ -27,7 +27,7 @@ export class MCPManager {
       workspaceRoot ||
       vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ||
       process.cwd();
-    this.configPath = path.join(this.workspaceRoot, ".claudecode", "mcp.json");
+    this.configPath = path.join(this.workspaceRoot, ".mythatron", "mcp.json");
   }
 
   /**

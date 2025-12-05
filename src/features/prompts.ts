@@ -184,7 +184,7 @@ export class PromptsLibrary {
   private promptsPath: string;
 
   constructor(workspaceRoot: string) {
-    this.promptsPath = path.join(workspaceRoot, ".claudecode", "prompts.json");
+    this.promptsPath = path.join(workspaceRoot, ".mythatron", "prompts.json");
     this.loadPrompts();
   }
 

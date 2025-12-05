@@ -1,9 +1,14 @@
 {
-  "name": "claude-code",
-  "displayName": "Claude Code",
-  "description": "AI-powered coding assistant with smart cost optimization - A complete Cursor alternative",
-  "version": "2.1.0",
-  "publisher": "justincronk",
+  "name": "mythatron-code",
+  "displayName": "MythaTron Code",
+  "description": "AI-powered coding assistant with smart cost optimization - Build faster, spend less",
+  "version": "1.0.0",
+  "publisher": "mythatron",
+  "homepage": "https://mythatron.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcronkdc/claude-code"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -14,11 +19,14 @@
   ],
   "keywords": [
     "ai",
-    "claude",
+    "mythatron",
     "copilot",
     "cursor",
     "assistant",
-    "autocomplete"
+    "autocomplete",
+    "claude",
+    "gpt",
+    "llama"
   ],
   "activationEvents": [
     "onStartupFinished"
@@ -27,152 +35,152 @@
   "contributes": {
     "commands": [
       {
-        "command": "claudeCode.open",
-        "title": "Claude Code: Open Chat",
+        "command": "mythaTron.open",
+        "title": "MythaTron: Open Chat",
         "icon": {
           "light": "media/icon-light.svg",
           "dark": "media/icon-dark.svg"
         }
       },
       {
-        "command": "claudeCode.newChat",
-        "title": "Claude Code: New Chat"
+        "command": "mythaTron.newChat",
+        "title": "MythaTron: New Chat"
       },
       {
-        "command": "claudeCode.showCostDetails",
-        "title": "Claude Code: Show Cost Details"
+        "command": "mythaTron.showCostDetails",
+        "title": "MythaTron: Show Cost Details"
       },
       {
-        "command": "claudeCode.configureMCP",
-        "title": "Claude Code: Configure MCP Servers"
+        "command": "mythaTron.configureMCP",
+        "title": "MythaTron: Configure MCP Servers"
       },
       {
-        "command": "claudeCode.editRules",
-        "title": "Claude Code: Edit Project Rules"
+        "command": "mythaTron.editRules",
+        "title": "MythaTron: Edit Project Rules"
       },
       {
-        "command": "claudeCode.toggleCompletions",
-        "title": "Claude Code: Toggle Inline Completions"
+        "command": "mythaTron.toggleCompletions",
+        "title": "MythaTron: Toggle Inline Completions"
       },
       {
-        "command": "claudeCode.indexWorkspace",
-        "title": "Claude Code: Index Workspace"
+        "command": "mythaTron.indexWorkspace",
+        "title": "MythaTron: Index Workspace"
       },
       {
-        "command": "claudeCode.sendSelection",
-        "title": "Claude Code: Send Selection to Chat"
+        "command": "mythaTron.sendSelection",
+        "title": "MythaTron: Send Selection to Chat"
       },
       {
-        "command": "claudeCode.generateCommit",
-        "title": "Claude Code: Generate Commit Message"
+        "command": "mythaTron.generateCommit",
+        "title": "MythaTron: Generate Commit Message"
       },
       {
-        "command": "claudeCode.analyzeDeadCode",
-        "title": "Claude Code: Find Dead Code"
+        "command": "mythaTron.analyzeDeadCode",
+        "title": "MythaTron: Find Dead Code"
       },
       {
-        "command": "claudeCode.analyzeDeps",
-        "title": "Claude Code: Analyze Dependencies"
+        "command": "mythaTron.analyzeDeps",
+        "title": "MythaTron: Analyze Dependencies"
       },
       {
-        "command": "claudeCode.newProject",
-        "title": "Claude Code: Create New Project"
+        "command": "mythaTron.newProject",
+        "title": "MythaTron: Create New Project"
       },
       {
-        "command": "claudeCode.autoImport",
-        "title": "Claude Code: Auto-fix Imports"
+        "command": "mythaTron.autoImport",
+        "title": "MythaTron: Auto-fix Imports"
       },
       {
-        "command": "claudeCode.showPrompts",
-        "title": "Claude Code: Show Prompt Library"
+        "command": "mythaTron.showPrompts",
+        "title": "MythaTron: Show Prompt Library"
       },
       {
-        "command": "claudeCode.showHistory",
-        "title": "Claude Code: Show Chat History"
+        "command": "mythaTron.showHistory",
+        "title": "MythaTron: Show Chat History"
       },
       {
-        "command": "claudeCode.explainCode",
-        "title": "Claude Code: Explain Code"
+        "command": "mythaTron.explainCode",
+        "title": "MythaTron: Explain Code"
       },
       {
-        "command": "claudeCode.refactorCode",
-        "title": "Claude Code: Refactor Code"
+        "command": "mythaTron.refactorCode",
+        "title": "MythaTron: Refactor Code"
       },
       {
-        "command": "claudeCode.generateTests",
-        "title": "Claude Code: Generate Tests"
+        "command": "mythaTron.generateTests",
+        "title": "MythaTron: Generate Tests"
       },
       {
-        "command": "claudeCode.fixError",
-        "title": "Claude Code: Fix Current Error"
+        "command": "mythaTron.fixError",
+        "title": "MythaTron: Fix Current Error"
       },
       {
-        "command": "claudeCode.reviewCode",
-        "title": "Claude Code: Review Code"
+        "command": "mythaTron.reviewCode",
+        "title": "MythaTron: Review Code"
       },
       {
-        "command": "claudeCode.showCostDashboard",
-        "title": "Claude Code: Show Cost Dashboard"
+        "command": "mythaTron.showCostDashboard",
+        "title": "MythaTron: Show Cost Dashboard"
       },
       {
-        "command": "claudeCode.showSavings",
-        "title": "Claude Code: Show Savings Report"
+        "command": "mythaTron.showSavings",
+        "title": "MythaTron: Show Savings Report"
       },
       {
-        "command": "claudeCode.clearCache",
-        "title": "Claude Code: Clear All Caches"
+        "command": "mythaTron.clearCache",
+        "title": "MythaTron: Clear All Caches"
       },
       {
-        "command": "claudeCode.rollback",
-        "title": "Claude Code: Rollback Last Change"
+        "command": "mythaTron.rollback",
+        "title": "MythaTron: Rollback Last Change"
       },
       {
-        "command": "claudeCode.exportCosts",
-        "title": "Claude Code: Export Cost Report"
+        "command": "mythaTron.exportCosts",
+        "title": "MythaTron: Export Cost Report"
       },
       {
-        "command": "claudeCode.checkCLIs",
-        "title": "Claude Code: Check CLI Configurations"
+        "command": "mythaTron.checkCLIs",
+        "title": "MythaTron: Check CLI Configurations"
       },
       {
-        "command": "claudeCode.importCLIKeys",
-        "title": "Claude Code: Import API Keys from CLIs"
+        "command": "mythaTron.importCLIKeys",
+        "title": "MythaTron: Import API Keys from CLIs"
       },
       {
-        "command": "claudeCode.setupWizard",
-        "title": "Claude Code: Setup Wizard"
+        "command": "mythaTron.setupWizard",
+        "title": "MythaTron: Setup Wizard"
       },
       {
-        "command": "claudeCode.createRepo",
-        "title": "Claude Code: Create GitHub Repository"
+        "command": "mythaTron.createRepo",
+        "title": "MythaTron: Create GitHub Repository"
       },
       {
-        "command": "claudeCode.pushToGitHub",
-        "title": "Claude Code: Push to GitHub"
+        "command": "mythaTron.pushToGitHub",
+        "title": "MythaTron: Push to GitHub"
       },
       {
-        "command": "claudeCode.preflightCheck",
-        "title": "Claude Code: Run Preflight Check"
+        "command": "mythaTron.preflightCheck",
+        "title": "MythaTron: Run Preflight Check"
       },
       {
-        "command": "claudeCode.forceValidation",
-        "title": "Claude Code: Force Validation"
+        "command": "mythaTron.forceValidation",
+        "title": "MythaTron: Force Validation"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "claude-code",
-          "title": "Claude Code",
+          "id": "mythatron-code",
+          "title": "MythaTron Code",
           "icon": "media/icon.svg"
         }
       ]
     },
     "views": {
-      "claude-code": [
+      "mythatron-code": [
         {
           "type": "webview",
-          "id": "claudeCode.chatView",
+          "id": "mythaTron.chatView",
           "name": "Chat"
         }
       ]
@@ -180,71 +188,71 @@
     "menus": {
       "editor/context": [
         {
-          "command": "claudeCode.sendSelection",
+          "command": "mythaTron.sendSelection",
           "when": "editorHasSelection",
-          "group": "claudeCode@1"
+          "group": "mythaTron@1"
         },
         {
-          "command": "claudeCode.explainCode",
+          "command": "mythaTron.explainCode",
           "when": "editorHasSelection",
-          "group": "claudeCode@2"
+          "group": "mythaTron@2"
         },
         {
-          "command": "claudeCode.refactorCode",
+          "command": "mythaTron.refactorCode",
           "when": "editorHasSelection",
-          "group": "claudeCode@3"
+          "group": "mythaTron@3"
         },
         {
-          "command": "claudeCode.reviewCode",
+          "command": "mythaTron.reviewCode",
           "when": "editorHasSelection",
-          "group": "claudeCode@4"
+          "group": "mythaTron@4"
         }
       ],
       "scm/title": [
         {
-          "command": "claudeCode.generateCommit",
+          "command": "mythaTron.generateCommit",
           "group": "navigation"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "claudeCode.open",
-        "key": "ctrl+shift+k",
-        "mac": "cmd+shift+k"
+        "command": "mythaTron.open",
+        "key": "ctrl+shift+m",
+        "mac": "cmd+shift+m"
       },
       {
-        "command": "claudeCode.newChat",
+        "command": "mythaTron.newChat",
         "key": "ctrl+shift+n",
         "mac": "cmd+shift+n"
       },
       {
-        "command": "claudeCode.sendSelection",
+        "command": "mythaTron.sendSelection",
         "key": "ctrl+shift+l",
         "mac": "cmd+shift+l",
         "when": "editorHasSelection"
       },
       {
-        "command": "claudeCode.autoImport",
+        "command": "mythaTron.autoImport",
         "key": "ctrl+shift+i",
         "mac": "cmd+shift+i"
       },
       {
-        "command": "claudeCode.generateCommit",
+        "command": "mythaTron.generateCommit",
         "key": "ctrl+shift+g",
         "mac": "cmd+shift+g"
       }
     ],
     "configuration": {
-      "title": "Claude Code",
+      "title": "MythaTron Code",
       "properties": {
-        "claudeCode.apiKey": {
+        "mythaTron.apiKey": {
           "type": "string",
           "default": "",
           "description": "Your Anthropic API key",
           "scope": "application"
         },
-        "claudeCode.model": {
+        "mythaTron.model": {
           "type": "string",
           "default": "claude-sonnet-4-20250514",
           "enum": [
@@ -255,82 +263,82 @@
           ],
           "description": "Default Claude model to use"
         },
-        "claudeCode.maxTokens": {
+        "mythaTron.maxTokens": {
           "type": "number",
           "default": 8192,
           "description": "Maximum tokens in response"
         },
-        "claudeCode.temperature": {
+        "mythaTron.temperature": {
           "type": "number",
           "default": 0,
           "description": "Temperature for responses (0-1)"
         },
-        "claudeCode.enableSmartRouting": {
+        "mythaTron.enableSmartRouting": {
           "type": "boolean",
           "default": true,
           "description": "Route simple tasks to cheaper models to save costs"
         },
-        "claudeCode.openaiApiKey": {
+        "mythaTron.openaiApiKey": {
           "type": "string",
           "default": "",
           "description": "OpenAI API key for GPT models (optional, for smart routing)"
         },
-        "claudeCode.groqApiKey": {
+        "mythaTron.groqApiKey": {
           "type": "string",
           "default": "",
           "description": "Groq API key for Llama models (optional, for smart routing)"
         },
-        "claudeCode.ollamaUrl": {
+        "mythaTron.ollamaUrl": {
           "type": "string",
           "default": "http://localhost:11434",
           "description": "Ollama server URL for local models"
         },
-        "claudeCode.ollamaModel": {
+        "mythaTron.ollamaModel": {
           "type": "string",
           "default": "qwen2.5-coder:7b",
           "description": "Ollama model to use for simple tasks"
         },
-        "claudeCode.enableCaching": {
+        "mythaTron.enableCaching": {
           "type": "boolean",
           "default": true,
           "description": "Cache similar queries to reduce API calls"
         },
-        "claudeCode.showCostTracking": {
+        "mythaTron.showCostTracking": {
           "type": "boolean",
           "default": true,
           "description": "Show cost tracking in status bar"
         },
-        "claudeCode.enableInlineCompletions": {
+        "mythaTron.enableInlineCompletions": {
           "type": "boolean",
           "default": false,
           "description": "Enable AI-powered inline completions (Tab autocomplete)"
         },
-        "claudeCode.enableThinking": {
+        "mythaTron.enableThinking": {
           "type": "boolean",
           "default": true,
           "description": "Enable extended thinking for complex tasks"
         },
-        "claudeCode.requireConfirmation": {
+        "mythaTron.requireConfirmation": {
           "type": "boolean",
           "default": false,
           "description": "Require confirmation for dangerous operations"
         },
-        "claudeCode.maxIterations": {
+        "mythaTron.maxIterations": {
           "type": "number",
           "default": 25,
           "description": "Maximum agent loop iterations per request"
         },
-        "claudeCode.autoIndex": {
+        "mythaTron.autoIndex": {
           "type": "boolean",
           "default": true,
           "description": "Automatically index workspace on open"
         },
-        "claudeCode.autoImportOnSave": {
+        "mythaTron.autoImportOnSave": {
           "type": "boolean",
           "default": false,
           "description": "Automatically fix missing imports on save"
         },
-        "claudeCode.mcpServers": {
+        "mythaTron.mcpServers": {
           "type": "object",
           "default": {},
           "description": "MCP server configurations (per-workspace override)"
@@ -344,7 +352,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
     "package": "vsce package",
-    "install-extension": "code --install-extension claude-code-2.1.0.vsix",
+    "install-extension": "code --install-extension mythatron-code-1.0.0.vsix",
     "push": "./scripts/push.sh",
     "release": "npm run compile && npm run package && ./scripts/push.sh",
     "setup": "npm install && npm run compile"

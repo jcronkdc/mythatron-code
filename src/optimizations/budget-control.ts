@@ -102,7 +102,7 @@ export class BudgetControl {
     
     if (percent >= this.config.warningThreshold * 100) {
       vscode.window.showWarningMessage(
-        `Claude Code: ${type} budget at ${percent.toFixed(0)}% ($${current.toFixed(2)}/$${limit.toFixed(2)})`
+        `MythaTron Code: ${type} budget at ${percent.toFixed(0)}% ($${current.toFixed(2)}/$${limit.toFixed(2)})`
       );
       this.onLimitReached?.(type, current, limit);
     }

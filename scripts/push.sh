@@ -1,5 +1,5 @@
 #!/bin/bash
-# Claude Code - Streamlined GitHub Push Script
+# MythaTron Code - Streamlined GitHub Push Script
 # Usage: ./scripts/push.sh [commit-message]
 
 set -e
@@ -12,7 +12,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BLUE}       Claude Code - GitHub Push Workflow${NC}"
+echo -e "${BLUE}       MythaTron Code - GitHub Push Workflow${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
 # 1. Check if we're in a git repo

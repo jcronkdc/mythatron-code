@@ -58,7 +58,7 @@ export class AutoApply {
   };
 
   private readonly MAX_HISTORY = 50;
-  private readonly ROLLBACK_FOLDER = ".claudecode/rollbacks";
+  private readonly ROLLBACK_FOLDER = ".mythatron/rollbacks";
 
   /**
    * Start a new change transaction

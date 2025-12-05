@@ -26,8 +26,8 @@ npm-debug.log*
 coverage/
 
 # Claude Code local data (user-specific)
-.claudecode/history/
-.claudecode/prompts.json
+.mythatron/history/
+.mythatron/prompts.json
 
 # Temporary files
 *.tmp

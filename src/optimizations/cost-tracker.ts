@@ -77,7 +77,7 @@ export class CostTracker {
       vscode.StatusBarAlignment.Right,
       100
     );
-    this.outputChannel = vscode.window.createOutputChannel("Claude Code Costs");
+    this.outputChannel = vscode.window.createOutputChannel("MythaTron Code Costs");
     this.statusBarItem.show();
     this.updateStatusBar();
   }
@@ -362,7 +362,7 @@ export class CostTracker {
   async showDashboard(): Promise<void> {
     const panel = vscode.window.createWebviewPanel(
       "costDashboard",
-      "Claude Code Cost Dashboard",
+      "MythaTron Code Cost Dashboard",
       vscode.ViewColumn.One,
       { enableScripts: true }
     );

@@ -131,7 +131,7 @@ export class OfflineMode {
       this.outageStart = Date.now();
       this.stats.networkOutages++;
       vscode.window.showWarningMessage(
-        "Claude Code: Network offline. Requests will be queued or routed to local models."
+        "MythaTron Code: Network offline. Requests will be queued or routed to local models."
       );
     } else if (isOnline && !wasOnline) {
       // Came back online
@@ -143,7 +143,7 @@ export class OfflineMode {
         this.outageStart = null;
       }
       vscode.window.showInformationMessage(
-        `Claude Code: Back online. Processing ${this.requestQueue.length} queued requests.`
+        `MythaTron Code: Back online. Processing ${this.requestQueue.length} queued requests.`
       );
       this.processQueue();
     }

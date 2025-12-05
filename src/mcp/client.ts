@@ -214,7 +214,7 @@ export class MCPClient extends EventEmitter {
         sampling: {},
       },
       clientInfo: {
-        name: "claude-code",
+        name: "mythatron-code",
         version: "1.0.0",
       },
     })) as { capabilities: MCPCapabilities };

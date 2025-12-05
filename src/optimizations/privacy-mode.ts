@@ -113,7 +113,7 @@ export class PrivacyMode {
       throw new Error("No workspace open");
     }
 
-    const claudeCodeDir = path.join(workspaceFolder, ".claudecode");
+    const claudeCodeDir = path.join(workspaceFolder, ".mythatron");
     const exportData: DataExport = {
       conversations: [],
       settings: {},
@@ -164,7 +164,7 @@ export class PrivacyMode {
     const workspaceFolder = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
     if (!workspaceFolder) return;
 
-    const claudeCodeDir = path.join(workspaceFolder, ".claudecode");
+    const claudeCodeDir = path.join(workspaceFolder, ".mythatron");
     
     const filesToDelete = [
       "history.json",

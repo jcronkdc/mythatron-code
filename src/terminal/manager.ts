@@ -50,7 +50,7 @@ export class TerminalManager {
       process.cwd();
     
     // Create terminals tracking directory
-    this.terminalsDir = path.join(this.workspaceRoot, ".claudecode", "terminals");
+    this.terminalsDir = path.join(this.workspaceRoot, ".mythatron", "terminals");
     this.ensureTerminalsDir();
   }
 

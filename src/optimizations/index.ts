@@ -1,5 +1,5 @@
 /**
- * Claude Code Optimizations
+ * MythaTron Code Optimizations
  * 
  * A comprehensive suite of cost-saving optimizations that address
  * all the ways Cursor inflates usage and costs.

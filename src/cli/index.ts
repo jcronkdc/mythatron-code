@@ -451,12 +451,12 @@ export async function runSetupWizard(): Promise<void> {
   }
 
   if (steps.length === 0) {
-    vscode.window.showInformationMessage("✅ Claude Code is fully configured!");
+    vscode.window.showInformationMessage("✅ MythaTron Code is fully configured!");
     return;
   }
 
   const result = await vscode.window.showInformationMessage(
-    `Claude Code needs: ${steps.join(", ")}`,
+    `MythaTron Code needs: ${steps.join(", ")}`,
     "Configure Now",
     "Skip"
   );
@@ -465,7 +465,7 @@ export async function runSetupWizard(): Promise<void> {
     // Open settings
     await vscode.commands.executeCommand(
       "workbench.action.openSettings",
-      "claudeCode.apiKey"
+      "mythaTron.apiKey"
     );
   }
 }

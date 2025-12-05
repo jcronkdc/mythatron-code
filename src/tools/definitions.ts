@@ -1,5 +1,5 @@
 /**
- * Tool definitions for Claude Code
+ * Tool definitions for MythaTron Code
  * COMPLETE replication of ALL Cursor/Claude capabilities
  */
 

@@ -1,12 +1,14 @@
-# Claude Code v2.0
+# MythaTron Code v1.0
 
-**A complete AI coding assistant with smart cost optimization - The definitive Cursor alternative**
+**Build faster. Spend less. Own your tools.**
+
+🌐 **[mythatron.com](https://mythatron.com)**
 
 ## Overview
 
-Claude Code is a VS Code extension that replicates and extends all of Cursor's AI capabilities, with **smart cost routing to reduce your LLM spending by 70%+**.
+MythaTron Code is a VS Code extension that provides complete AI coding capabilities with **smart cost routing to reduce your LLM spending by 70%+**.
 
-After spending $12k/month on AI coding tools, this extension was built to provide the same capabilities at a fraction of the cost.
+Unlike other AI coding tools that are designed to maximize your API consumption, MythaTron is built with **YOUR efficiency in mind** - minimizing tokens, caching responses, and routing to the cheapest capable model.
 
 ## Features
 
@@ -51,16 +53,16 @@ After spending $12k/month on AI coding tools, this extension was built to provid
 
 ### From VSIX
 ```bash
-code --install-extension claude-code-2.0.0.vsix
+code --install-extension mythatron-code-2.0.0.vsix
 ```
 
 ### From Source
 ```bash
-git clone https://github.com/yourusername/claude-code
-cd claude-code
+git clone https://github.com/yourusername/mythatron-code
+cd mythatron-code
 npm install
 npm run package
-code --install-extension claude-code-2.0.0.vsix
+code --install-extension mythatron-code-2.0.0.vsix
 ```
 
 ## Configuration
@@ -68,24 +70,24 @@ code --install-extension claude-code-2.0.0.vsix
 ### Required Settings
 ```json
 {
-  "claudeCode.apiKey": "sk-ant-xxx"  // Your Anthropic API key
+  "mythaTron.apiKey": "sk-ant-xxx"  // Your Anthropic API key
 }
 ```
 
 ### Optional Cost Optimization
 ```json
 {
-  "claudeCode.enableSmartRouting": true,       // Route simple tasks to cheaper models
-  "claudeCode.openaiApiKey": "sk-xxx",         // GPT-4o-mini for medium tasks
-  "claudeCode.groqApiKey": "gsk_xxx",          // Llama for fast simple tasks
-  "claudeCode.ollamaUrl": "http://localhost:11434",  // Local models (FREE)
-  "claudeCode.ollamaModel": "qwen2.5-coder",   // Fast local coding model
-  "claudeCode.enableCaching": true             // Cache similar queries
+  "mythaTron.enableSmartRouting": true,       // Route simple tasks to cheaper models
+  "mythaTron.openaiApiKey": "sk-xxx",         // GPT-4o-mini for medium tasks
+  "mythaTron.groqApiKey": "gsk_xxx",          // Llama for fast simple tasks
+  "mythaTron.ollamaUrl": "http://localhost:11434",  // Local models (FREE)
+  "mythaTron.ollamaModel": "qwen2.5-coder",   // Fast local coding model
+  "mythaTron.enableCaching": true             // Cache similar queries
 }
 ```
 
 ### MCP Configuration
-Create `.claudecode/mcp.json` in your project:
+Create `.mythatron/mcp.json` in your project:
 ```json
 {
   "servers": {
@@ -105,7 +107,7 @@ Create `.claudecode/mcp.json` in your project:
 ```
 
 ### Project Rules
-Create `.claudecode/rules.json`:
+Create `.mythatron/rules.json`:
 ```json
 {
   "rules": [
@@ -120,9 +122,11 @@ Create `.claudecode/rules.json`:
 
 | Shortcut | Action |
 |----------|--------|
-| `Cmd+Shift+K` | Open Claude Code |
+| `Cmd+Shift+M` | Open MythaTron Code |
 | `Cmd+Shift+N` | New Chat |
 | `Cmd+Shift+L` | Send Selection to Chat |
+| `Cmd+Shift+I` | Auto-fix Imports |
+| `Cmd+Shift+G` | Generate Commit Message |
 
 ## Cost Comparison
 

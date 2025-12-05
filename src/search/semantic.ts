@@ -59,7 +59,7 @@ export class SemanticSearch {
       vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ||
       process.cwd();
     
-    this.indexPath = path.join(this.workspaceRoot, ".claudecode", "search-index.json");
+    this.indexPath = path.join(this.workspaceRoot, ".mythatron", "search-index.json");
   }
 
   /**

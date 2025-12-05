@@ -22,8 +22,8 @@ export interface DiffResult {
  * Show a diff preview and let user accept/reject
  */
 export async function showDiffPreview(change: DiffChange): Promise<DiffResult> {
-  const originalUri = vscode.Uri.parse(`claude-code-original:${change.file}`);
-  const modifiedUri = vscode.Uri.parse(`claude-code-modified:${change.file}`);
+  const originalUri = vscode.Uri.parse(`mythatron-code-original:${change.file}`);
+  const modifiedUri = vscode.Uri.parse(`mythatron-code-modified:${change.file}`);
 
   const originalProvider = new (class implements vscode.TextDocumentContentProvider {
     provideTextDocumentContent(): string {
@@ -38,8 +38,8 @@ export async function showDiffPreview(change: DiffChange): Promise<DiffResult> {
   })();
 
   const disposables = [
-    vscode.workspace.registerTextDocumentContentProvider("claude-code-original", originalProvider),
-    vscode.workspace.registerTextDocumentContentProvider("claude-code-modified", modifiedProvider),
+    vscode.workspace.registerTextDocumentContentProvider("mythatron-code-original", originalProvider),
+    vscode.workspace.registerTextDocumentContentProvider("mythatron-code-modified", modifiedProvider),
   ];
 
   try {

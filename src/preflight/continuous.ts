@@ -44,7 +44,7 @@ export function initContinuousValidation(context: vscode.ExtensionContext): void
     vscode.StatusBarAlignment.Left,
     100
   );
-  statusBarItem.command = "claudeCode.showPreflightReport";
+  statusBarItem.command = "mythaTron.showPreflightReport";
   updateStatusBar();
   statusBarItem.show();
 
@@ -216,7 +216,7 @@ function updateDiagnostics(errors: TSError[]): void {
       vscode.DiagnosticSeverity.Error
     );
 
-    diagnostic.source = "Claude Code";
+    diagnostic.source = "MythaTron Code";
     diagnostics.push(diagnostic);
     byFile.set(error.file, diagnostics);
   }

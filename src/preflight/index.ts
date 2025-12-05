@@ -311,7 +311,7 @@ async function checkAPIKeys(workspacePath: string): Promise<PreflightResult[]> {
         category: "API Keys",
         status: "fail",
         message: `${provider} API key not configured`,
-        fix: `Set claudeCode.${check.setting} in settings or ${check.env} env var`,
+        fix: `Set mythaTron.${check.setting} in settings or ${check.env} env var`,
       });
     } else {
       results.push({

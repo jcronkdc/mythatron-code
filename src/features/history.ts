@@ -35,7 +35,7 @@ export class ConversationHistory {
   private currentConversationId: string | null = null;
 
   constructor(workspaceRoot: string) {
-    this.historyPath = path.join(workspaceRoot, ".claudecode", "history");
+    this.historyPath = path.join(workspaceRoot, ".mythatron", "history");
     this.loadIndex();
   }
 

@@ -1,5 +1,5 @@
 /**
- * Claude Code Extension - Main entry point
+ * MythaTron Code Extension - Main entry point
  * A complete AI coding assistant with smart cost optimization
  */
 
@@ -52,8 +52,8 @@ let currentAbortController: AbortController | null = null;
 let optimizations: ReturnType<typeof initializeOptimizations>;
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
-  outputChannel = vscode.window.createOutputChannel("Claude Code");
-  outputChannel.appendLine("Activating Claude Code...");
+  outputChannel = vscode.window.createOutputChannel("MythaTron Code");
+  outputChannel.appendLine("Activating MythaTron Code...");
 
   // Get workspace root
   const workspaceRoot =
@@ -112,7 +112,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     getOfflineMode().onStatusChangeCallback((online) => {
       if (!online) {
         vscode.window.showWarningMessage(
-          "Claude Code: Network offline. Using local models and request queuing."
+          "MythaTron Code: Network offline. Using local models and request queuing."
         );
       }
     });
@@ -120,12 +120,12 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     // Set cost limit warning
     getCostTracker().setCostLimit(10, () => {
       vscode.window.showWarningMessage(
-        "Claude Code: Session cost has exceeded $10. Consider starting a new session."
+        "MythaTron Code: Session cost has exceeded $10. Consider starting a new session."
       );
     });
   } catch (error) {
     outputChannel.appendLine(`Initialization error: ${error}`);
-    vscode.window.showErrorMessage(`Claude Code failed to initialize: ${error}`);
+    vscode.window.showErrorMessage(`MythaTron Code failed to initialize: ${error}`);
   }
 
   // Create status bar items
@@ -133,9 +133,9 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     vscode.StatusBarAlignment.Right,
     100
   );
-  statusBarItem.text = "$(sparkle) Claude Code";
-  statusBarItem.tooltip = "Click to open Claude Code";
-  statusBarItem.command = "claudeCode.open";
+  statusBarItem.text = "$(sparkle) MythaTron Code";
+  statusBarItem.tooltip = "Click to open MythaTron Code";
+  statusBarItem.command = "mythaTron.open";
   statusBarItem.show();
 
   costStatusItem = vscode.window.createStatusBarItem(
@@ -144,7 +144,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   );
   costStatusItem.text = "$(dashboard) $0.00";
   costStatusItem.tooltip = "Estimated session cost (click for details)";
-  costStatusItem.command = "claudeCode.showCostDashboard";
+  costStatusItem.command = "mythaTron.showCostDashboard";
   costStatusItem.show();
 
   savingsStatusItem = vscode.window.createStatusBarItem(
@@ -158,59 +158,59 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   // Register commands
   context.subscriptions.push(
     // Core commands
-    vscode.commands.registerCommand("claudeCode.open", () => openWebview(context)),
-    vscode.commands.registerCommand("claudeCode.newChat", () => startNewChat()),
-    vscode.commands.registerCommand("claudeCode.showCostDetails", () => showCostDetails()),
-    vscode.commands.registerCommand("claudeCode.showCostDashboard", () => getCostTracker().showDashboard()),
-    vscode.commands.registerCommand("claudeCode.configureMCP", () => configureMCP(context)),
-    vscode.commands.registerCommand("claudeCode.editRules", () => editRules()),
-    vscode.commands.registerCommand("claudeCode.toggleCompletions", () => toggleCompletions()),
-    vscode.commands.registerCommand("claudeCode.indexWorkspace", () => indexWorkspace()),
-    vscode.commands.registerCommand("claudeCode.sendSelection", () => sendSelection()),
-    vscode.commands.registerCommand("claudeCode.showSavings", () => showSavingsReport()),
-    vscode.commands.registerCommand("claudeCode.clearCache", () => clearAllCaches()),
-    vscode.commands.registerCommand("claudeCode.rollback", () => rollbackLastChange()),
-    vscode.commands.registerCommand("claudeCode.exportCosts", () => exportCostReport()),
+    vscode.commands.registerCommand("mythaTron.open", () => openWebview(context)),
+    vscode.commands.registerCommand("mythaTron.newChat", () => startNewChat()),
+    vscode.commands.registerCommand("mythaTron.showCostDetails", () => showCostDetails()),
+    vscode.commands.registerCommand("mythaTron.showCostDashboard", () => getCostTracker().showDashboard()),
+    vscode.commands.registerCommand("mythaTron.configureMCP", () => configureMCP(context)),
+    vscode.commands.registerCommand("mythaTron.editRules", () => editRules()),
+    vscode.commands.registerCommand("mythaTron.toggleCompletions", () => toggleCompletions()),
+    vscode.commands.registerCommand("mythaTron.indexWorkspace", () => indexWorkspace()),
+    vscode.commands.registerCommand("mythaTron.sendSelection", () => sendSelection()),
+    vscode.commands.registerCommand("mythaTron.showSavings", () => showSavingsReport()),
+    vscode.commands.registerCommand("mythaTron.clearCache", () => clearAllCaches()),
+    vscode.commands.registerCommand("mythaTron.rollback", () => rollbackLastChange()),
+    vscode.commands.registerCommand("mythaTron.exportCosts", () => exportCostReport()),
     
     // Smart commit
-    vscode.commands.registerCommand("claudeCode.generateCommit", () => generateCommit()),
+    vscode.commands.registerCommand("mythaTron.generateCommit", () => generateCommit()),
     
     // Code analysis
-    vscode.commands.registerCommand("claudeCode.analyzeDeadCode", () => analyzeDeadCode()),
-    vscode.commands.registerCommand("claudeCode.analyzeDeps", () => analyzeDeps()),
+    vscode.commands.registerCommand("mythaTron.analyzeDeadCode", () => analyzeDeadCode()),
+    vscode.commands.registerCommand("mythaTron.analyzeDeps", () => analyzeDeps()),
     
     // Project templates
-    vscode.commands.registerCommand("claudeCode.newProject", () => createNewProject()),
+    vscode.commands.registerCommand("mythaTron.newProject", () => createNewProject()),
     
     // Smart imports
-    vscode.commands.registerCommand("claudeCode.autoImport", () => autoImport()),
+    vscode.commands.registerCommand("mythaTron.autoImport", () => autoImport()),
     
     // Prompts library
-    vscode.commands.registerCommand("claudeCode.showPrompts", () => showPrompts()),
+    vscode.commands.registerCommand("mythaTron.showPrompts", () => showPrompts()),
     
     // History
-    vscode.commands.registerCommand("claudeCode.showHistory", () => showHistory()),
+    vscode.commands.registerCommand("mythaTron.showHistory", () => showHistory()),
     
     // Code actions
-    vscode.commands.registerCommand("claudeCode.explainCode", () => executeCodeAction("explain")),
-    vscode.commands.registerCommand("claudeCode.refactorCode", () => executeCodeAction("refactor")),
-    vscode.commands.registerCommand("claudeCode.generateTests", () => executeCodeAction("tests")),
-    vscode.commands.registerCommand("claudeCode.fixError", () => executeCodeAction("fix")),
-    vscode.commands.registerCommand("claudeCode.reviewCode", () => executeCodeAction("review")),
+    vscode.commands.registerCommand("mythaTron.explainCode", () => executeCodeAction("explain")),
+    vscode.commands.registerCommand("mythaTron.refactorCode", () => executeCodeAction("refactor")),
+    vscode.commands.registerCommand("mythaTron.generateTests", () => executeCodeAction("tests")),
+    vscode.commands.registerCommand("mythaTron.fixError", () => executeCodeAction("fix")),
+    vscode.commands.registerCommand("mythaTron.reviewCode", () => executeCodeAction("review")),
     
     // CLI integration
-    vscode.commands.registerCommand("claudeCode.checkCLIs", () => showCLIStatus()),
-    vscode.commands.registerCommand("claudeCode.importCLIKeys", () => importFromCLIs()),
-    vscode.commands.registerCommand("claudeCode.setupWizard", () => runSetupWizard()),
+    vscode.commands.registerCommand("mythaTron.checkCLIs", () => showCLIStatus()),
+    vscode.commands.registerCommand("mythaTron.importCLIKeys", () => importFromCLIs()),
+    vscode.commands.registerCommand("mythaTron.setupWizard", () => runSetupWizard()),
     
     // GitHub integration
-    vscode.commands.registerCommand("claudeCode.createRepo", () => createRepoInteractive()),
-    vscode.commands.registerCommand("claudeCode.pushToGitHub", () => quickPush()),
+    vscode.commands.registerCommand("mythaTron.createRepo", () => createRepoInteractive()),
+    vscode.commands.registerCommand("mythaTron.pushToGitHub", () => quickPush()),
     
     // Preflight checks
-    vscode.commands.registerCommand("claudeCode.preflightCheck", () => showPreflightReport()),
-    vscode.commands.registerCommand("claudeCode.forceValidation", () => forceValidation()),
-    vscode.commands.registerCommand("claudeCode.showPreflightReport", () => showPreflightReport()),
+    vscode.commands.registerCommand("mythaTron.preflightCheck", () => showPreflightReport()),
+    vscode.commands.registerCommand("mythaTron.forceValidation", () => forceValidation()),
+    vscode.commands.registerCommand("mythaTron.showPreflightReport", () => showPreflightReport()),
     
     statusBarItem,
     costStatusItem,
@@ -218,7 +218,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     outputChannel
   );
 
-  outputChannel.appendLine("Claude Code activated");
+  outputChannel.appendLine("MythaTron Code activated");
 }
 
 function openWebview(context: vscode.ExtensionContext): void {
@@ -229,7 +229,7 @@ function openWebview(context: vscode.ExtensionContext): void {
 
   webviewPanel = vscode.window.createWebviewPanel(
     "claudeCode",
-    "Claude Code",
+    "MythaTron Code",
     vscode.ViewColumn.Beside,
     {
       enableScripts: true,
@@ -390,7 +390,7 @@ async function configureMCP(context: vscode.ExtensionContext): Promise<void> {
     return;
   }
 
-  const mcpConfigPath = path.join(workspaceRoot, ".claudecode", "mcp.json");
+  const mcpConfigPath = path.join(workspaceRoot, ".mythatron", "mcp.json");
   const doc = await vscode.workspace.openTextDocument(
     vscode.Uri.file(mcpConfigPath).with({ scheme: "untitled" })
   );
@@ -418,7 +418,7 @@ async function editRules(): Promise<void> {
     return;
   }
 
-  const rulesPath = path.join(workspaceRoot, ".claudecode", "rules.json");
+  const rulesPath = path.join(workspaceRoot, ".mythatron", "rules.json");
   const doc = await vscode.workspace.openTextDocument(vscode.Uri.file(rulesPath));
   await vscode.window.showTextDocument(doc);
 }
@@ -469,7 +469,7 @@ async function sendSelection(): Promise<void> {
   const prompt = `Here's a code selection from ${fileName}:\n\n\`\`\`${language}\n${selection}\n\`\`\`\n\nWhat would you like me to do with this code?`;
 
   // Open webview and send
-  await vscode.commands.executeCommand("claudeCode.open");
+  await vscode.commands.executeCommand("mythaTron.open");
 
   setTimeout(() => {
     if (webviewPanel) {
@@ -487,7 +487,7 @@ function getWebviewContent(): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claude Code</title>
+  <title>MythaTron Code</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -729,7 +729,7 @@ function getWebviewContent(): string {
         <path d="M2 17l10 5 10-5"/>
         <path d="M2 12l10 5 10-5"/>
       </svg>
-      Claude Code
+      MythaTron Code
     </h1>
     <div class="header-actions">
       <button class="header-btn" onclick="clearChat()">Clear</button>
@@ -981,7 +981,7 @@ async function exportCostReport(): Promise<void> {
 
   const filePath = path.join(
     workspaceFolder,
-    ".claudecode",
+    ".mythatron",
     `cost-report-${Date.now()}.csv`
   );
 
@@ -1128,7 +1128,7 @@ async function showPrompts(): Promise<void> {
       const expandedPrompt = library.expandPrompt(prompt, { selection });
       
       // Open chat and send prompt
-      await vscode.commands.executeCommand("claudeCode.open");
+      await vscode.commands.executeCommand("mythaTron.open");
       setTimeout(() => {
         if (webviewPanel) {
           webviewPanel.webview.postMessage({
@@ -1201,7 +1201,7 @@ async function executeCodeAction(action: "explain" | "refactor" | "tests" | "fix
   };
 
   // Open chat and send prompt
-  await vscode.commands.executeCommand("claudeCode.open");
+  await vscode.commands.executeCommand("mythaTron.open");
   
   setTimeout(() => {
     if (webviewPanel) {
@@ -1214,7 +1214,7 @@ async function executeCodeAction(action: "explain" | "refactor" | "tests" | "fix
 }
 
 export function deactivate(): void {
-  outputChannel?.appendLine("Claude Code deactivating...");
+  outputChannel?.appendLine("MythaTron Code deactivating...");
 
   // Clean up optimizations
   try {
