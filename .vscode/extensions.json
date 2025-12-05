@@ -1,0 +1,32 @@
+{
+  // ========================================
+  // MythaTron Code - Recommended Extensions
+  // ========================================
+  // Extensions specifically needed for VS Code extension development
+  
+  "recommendations": [
+    // Essential for VS Code extension development
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    
+    // TypeScript enhanced support
+    "ms-vscode.vscode-typescript-next",
+    
+    // API development
+    "humao.rest-client",
+    
+    // Git integration
+    "eamodio.gitlens",
+    
+    // Code quality
+    "streetsidesoftware.code-spell-checker",
+    
+    // SVG editing for custom icons
+    "jock.svg"
+  ],
+  
+  "unwantedRecommendations": [
+    // Avoid tools that might conflict with MythaTron itself
+    // Add any that cause issues during development
+  ]
+}

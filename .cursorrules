@@ -1,0 +1,239 @@
+# MythaTron Code - Project System Prompt
+# =====================================
+# These rules apply ONLY when working on the MythaTron Code VS Code extension.
+
+## Project Identity
+This is **MythaTron Code** - an AI-powered VS Code extension that provides coding assistance with smart cost optimization. The goal is to reduce LLM API costs by 70%+ through intelligent routing, caching, and optimization.
+
+**Core Philosophy:** Build faster. Spend less. Own your tools.
+
+---
+
+## Architecture Overview
+
+```
+src/
+├── agent/           # Core Claude agent (claude-agent.ts, indexer.ts)
+├── agents/          # Dual-agent system for complex tasks
+├── browser/         # DevTools integration
+├── cli/             # GitHub CLI integration
+├── features/        # Extended capabilities (20+ feature modules)
+├── mcp/             # Model Context Protocol client/manager
+├── memory/          # Persistent memory system
+├── optimizations/   # Cost-saving systems (15+ optimization modules)
+├── preflight/       # Validation and continuous checking
+├── providers/       # LLM providers (Anthropic, OpenAI, Groq, Ollama)
+├── search/          # Semantic and web search
+├── terminal/        # Terminal management
+├── tools/           # Tool definitions and executor
+└── extension.ts     # VS Code entry point
+```
+
+---
+
+## Critical Rules for This Project
+
+### 1. NEVER Use Emojis
+- All icons MUST be custom SVG or VS Code codicons
+- Use `$(icon-name)` for VS Code codicons in status bars
+- Create custom SVG icons in `media/` folder when needed
+
+### 2. Cost Optimization is CORE
+- Every feature must consider token usage
+- Prefer local/cached operations over API calls
+- Use smart routing: simple tasks → cheap models
+- Always track and display costs to users
+
+### 3. Type Safety
+- TypeScript strict mode enabled
+- No `any` types without explicit comment justification
+- All async functions must handle errors properly
+- Use proper VS Code API types
+
+### 4. Extension Guidelines
+- VS Code extension APIs change - always check compatibility
+- Use `vscode.workspace.getConfiguration()` for settings
+- Register all disposables in `context.subscriptions`
+- Clean up resources in `deactivate()`
+
+### 5. Provider Architecture
+- All LLM providers implement common interface in `providers/types.ts`
+- Task classifier determines complexity → routes to appropriate provider
+- Provider manager handles fallbacks and smart routing
+
+---
+
+## Code Patterns to Follow
+
+### Adding a New Feature
+```typescript
+// 1. Create file in src/features/
+// 2. Export initialization function
+// 3. Register in extension.ts activate()
+// 4. Add command to package.json contributes.commands
+// 5. Add keybinding if needed
+```
+
+### Adding a New Optimization
+```typescript
+// 1. Create file in src/optimizations/
+// 2. Export from src/optimizations/index.ts
+// 3. Initialize in extension.ts initializeOptimizations()
+// 4. Add stats to getAggregatedStats()
+```
+
+### Adding a New Provider
+```typescript
+// 1. Implement LLMProvider interface from providers/types.ts
+// 2. Create src/providers/{name}-provider.ts
+// 3. Register in provider-manager.ts
+// 4. Add API key setting to package.json
+```
+
+---
+
+## VS Code Extension Specifics
+
+### Commands Format
+```json
+{
+  "command": "mythaTron.commandName",
+  "title": "MythaTron: Human Readable Title"
+}
+```
+
+### Settings Format
+```json
+{
+  "mythaTron.settingName": {
+    "type": "string|boolean|number|object",
+    "default": "value",
+    "description": "Clear description"
+  }
+}
+```
+
+### Status Bar Items
+- Use `$(codicon-name)` for icons
+- Right alignment, priority 98-100
+- Always include tooltip with details
+- Make clickable with command binding
+
+---
+
+## Dependencies to Know
+
+| Package | Purpose |
+|---------|---------|
+| `@anthropic-ai/sdk` | Claude API |
+| `openai` | GPT models |
+| `groq-sdk` | Llama via Groq |
+| `ollama` | Local models |
+| `ws` | WebSocket for MCP |
+| `glob` | File pattern matching |
+| `ignore` | .gitignore parsing |
+| `uuid` | Unique IDs |
+
+---
+
+## Testing Approach
+
+1. **Manual Testing**: Use F5 to launch Extension Development Host
+2. **Preflight Checks**: Run `MythaTron: Run Preflight Check` command
+3. **Continuous Validation**: Auto-runs on file save
+4. **Cost Testing**: Verify smart routing reduces costs
+
+---
+
+## What NOT to Do
+
+- ❌ Use emojis anywhere (use custom SVG icons)
+- ❌ Make API calls without considering cost
+- ❌ Add dependencies without justification
+- ❌ Ignore VS Code API deprecation warnings
+- ❌ Create memory leaks (always dispose)
+- ❌ Hard-code API keys or secrets
+- ❌ Block the extension host thread
+- ❌ Skip error handling on async operations
+
+---
+
+## File Naming Conventions
+
+- Feature files: `kebab-case.ts` (e.g., `smart-commits.ts`)
+- Type files: `types.ts` within each module
+- Index files: `index.ts` for module exports
+- Test files: `*.test.ts` (not yet implemented)
+
+---
+
+## Key Extension Points
+
+### MCP Configuration
+Users configure in `.mythatron/mcp.json`:
+```json
+{
+  "servers": {
+    "server-name": {
+      "command": "npx",
+      "args": ["-y", "@package/mcp-server"],
+      "env": { "KEY": "value" }
+    }
+  }
+}
+```
+
+### Project Rules
+Users configure in `.mythatron/rules.json`:
+```json
+{
+  "rules": [
+    "Always use TypeScript",
+    "Prefer functional patterns"
+  ]
+}
+```
+
+---
+
+## Human Test Checklist
+
+Before any major change, verify:
+- [ ] Extension activates without errors
+- [ ] Chat webview opens and responds
+- [ ] Cost tracking displays in status bar
+- [ ] Smart routing works (simple task → Ollama/Groq)
+- [ ] MCP servers load from config
+- [ ] Memory persists across sessions
+- [ ] All commands appear in Command Palette
+- [ ] Keybindings work as expected
+- [ ] No console errors in DevTools
+
+---
+
+## Current Development Focus
+
+When working on this codebase:
+1. Maintain backwards compatibility
+2. Keep bundle size reasonable
+3. Optimize startup time
+4. Ensure graceful degradation without API keys
+5. Document complex logic inline
+
+---
+
+## Mycelial Network Pattern
+
+Like a mycelial network, MythaTron's systems are interconnected:
+
+```
+User Input → Context Tracker → Task Classifier → Provider Manager
+                ↓                    ↓                 ↓
+           Memory Store         Deduplicator     Smart Router
+                ↓                    ↓                 ↓
+           Semantic Search    Response Cache    Cost Tracker
+                ↓                    ↓                 ↓
+           Tool Executor  ←→  MCP Manager  ←→  Auto Apply
+```
+
+Each component can function independently but together creates efficient pathways - like ants solving a maze, finding the optimal route through caching, routing, and reuse.

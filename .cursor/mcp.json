@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "_comment": "MCPs specific to MythaTron Code development",
+    
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-filesystem", "/Users/justincronk/Desktop/MythaTronCode"],
+      "disabled": true,
+      "comment": "File operations within this project only"
+    },
+    
+    "github": {
+      "command": "npx", 
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+      },
+      "disabled": true,
+      "comment": "Enable for PR/issue management"
+    }
+  }
+}
