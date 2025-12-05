@@ -328,7 +328,10 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
     "package": "vsce package",
-    "install-extension": "code --install-extension claude-code-2.0.0.vsix"
+    "install-extension": "code --install-extension claude-code-2.1.0.vsix",
+    "push": "./scripts/push.sh",
+    "release": "npm run compile && npm run package && ./scripts/push.sh",
+    "setup": "npm install && npm run compile"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
